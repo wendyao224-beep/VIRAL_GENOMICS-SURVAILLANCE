@@ -1,1 +1,19 @@
+FASTQC SCRIPT
 
+fastqc \
+    -o ./results/fastqc \
+    --noextract \
+    -t 2 \
+    --nogroup \
+    ./data/ERR5743893_1.fastq.gz \
+    ./data/ERR5743893_2.fastq.gz
+
+
+SCRIPT FOR REMOVING HUMAN READS
+
+hostile clean \
+    --fastq1 ./data/ERR5743893_1.fastq.gz \
+    --fastq2 ./data/ERR5743893_2.fastq.gz \
+    --output ./results/hostile/ \
+    --threads 4 \
+    --index ./databases/hostile/human-t2t-hla
